@@ -4,6 +4,12 @@ declare namespace Service {
     interface Custom {
         [key: string]: any;
     }
+    interface Resources {
+        [key: string]: any;
+        Resources: {
+            [key: string]: any;
+        };
+    }
 }
 
 declare class Service {
@@ -35,13 +41,7 @@ declare class Service {
     plugins: string[];
     pluginsData: { [key: string]: any };
     functions: { [key: string]: Serverless.FunctionDefinitionHandler | Serverless.FunctionDefinitionImage };
-    resources:
-        | {
-              Resources: {
-                  [key: string]: any;
-              };
-          }
-        | { [key: string]: any };
+    resources: Service.Resources;
     package: { [key: string]: any };
     configValidationMode: string;
     disabledDeprecations?: any[] | undefined;
